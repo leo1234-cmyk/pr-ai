@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Vibe Branding Site</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Dancing+Script:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 인터랙티브 배경 -->
+    <div class="interactive-bg"></div>
+    
+    <!-- 파티클 컨테이너 -->
+    <div class="particles-container"></div>
+
+    <!-- 배경 음악 -->
+    <audio id="bgMusic" loop>
+        <source src="assets/audio/ambient.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 마우스 따라다니는 요소 -->
+    <div class="cursor-follower"></div>
+    
+    <!-- 테마 토글 버튼 -->
+    <button class="theme-toggle" id="themeToggle" title="테마 변경">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <!-- 음악 토글 버튼 -->
+    <button class="music-toggle" id="musicToggle" title="음악 토글">
+        <span class="music-icon">🎵</span>
+    </button>
+
+    <!-- 네비게이션 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="vibe-text glitch" data-text="My Vibe">My Vibe</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About Me</a></li>
+                <li><a href="#vibe" class="nav-link">My Vibe</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 홈 섹션 -->
+    <section id="home" class="section home-section">
+        <div class="home-container">
+            <div class="intro-animation">
+                <h1 class="main-title">
+                    <span class="title-line">안녕하세요,</span>
+                    <span class="title-line highlight glitch" data-text="바이브 코딩">바이브 코딩</span>
+                    <span class="title-line">선생님입니다</span>
+                </h1>
+                <p class="intro-text typing-effect">감성과 코드가 만나는 공간에 오신 것을 환영합니다</p>
+                <div class="scroll-indicator" onclick="smoothScrollTo('about')">
+                    <span>스크롤해서 더 알아보기</span>
+                    <div class="scroll-arrow">↓</div>
+                </div>
+            </div>
+            <div class="floating-elements">
+                <div class="floating-element" style="--delay: 0s" onclick="createFireworks(this)">💫</div>
+                <div class="floating-element" style="--delay: 1s" onclick="createFireworks(this)">🎨</div>
+                <div class="floating-element" style="--delay: 2s" onclick="createFireworks(this)">💻</div>
+                <div class="floating-element" style="--delay: 3s" onclick="createFireworks(this)">🎵</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me 섹션 -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title glitch" data-text="About Me">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="story-card hologram">
+                        <h3>교육 철학</h3>
+                        <p>코딩은 단순한 명령어의 나열이 아닙니다. 그 안에는 창작자의 감성과 철학이 담겨있죠. 
+                        저는 학생들에게 '바이브 코딩'을 통해 기술과 감성의 조화를 가르치고 있습니다.</p>
+                    </div>
+                    <div class="story-card hologram">
+                        <h3>전북인공지능고등학교</h3>
+                        <p>미래의 개발자들과 함께 꿈을 키워나가는 곳입니다. 
+                        단순한 기술 습득을 넘어서, 각자의 개성과 창의성을 코드로 표현하는 방법을 탐구합니다.</p>
+                    </div>
+                    <div class="story-card hologram">
+                        <h3>관심 분야</h3>
+                        <p>프론트엔드 개발, UI/UX 디자인, 크리에이티브 코딩, 그리고 교육 방법론. 
+                        기술과 예술의 경계에서 새로운 가능성을 찾아가고 있습니다.</p>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="profile-area">
+                        <div class="profile-placeholder" onclick="profileClick()">
+                            <span>👨‍🏫</span>
+                        </div>
+                        <div class="quote-box">
+                            <blockquote class="glitch" data-text="코드에는 작성자의 마음이 담긴다">
+                                "코드에는 작성자의 마음이 담긴다"
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Vibe 섹션 -->
+    <section id="vibe" class="section vibe-section">
+        <div class="container">
+            <h2 class="section-title glitch" data-text="My Vibe">My Vibe</h2>
+            <div class="vibe-grid">
+                <div class="vibe-card color-vibe">
+                    <h3>컬러 팔레트</h3>
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: var(--primary-color)" title="Primary Color"></div>
+                        <div class="color-swatch" style="background: var(--secondary-color)" title="Secondary Color"></div>
+                        <div class="color-swatch" style="background: var(--accent-color)" title="Accent Color"></div>
+                        <div class="color-swatch" style="background: var(--text-color)" title="Text Color"></div>
+                        <div class="color-swatch" style="background: var(--bg-secondary)" title="Background Color"></div>
+                    </div>
+                    <p>따뜻하면서도 신비로운 감성</p>
+                </div>
+                
+                <div class="vibe-card music-vibe">
+                    <h3>음악 취향</h3>
+                    <div class="music-genres">
+                        <span class="genre-tag" onclick="genreClick(this)">Ambient</span>
+                        <span class="genre-tag" onclick="genreClick(this)">Lo-fi</span>
+                        <span class="genre-tag" onclick="genreClick(this)">Jazz</span>
+                        <span class="genre-tag" onclick="genreClick(this)">Indie</span>
+                    </div>
+                    <p>집중과 영감을 주는 사운드</p>
+                </div>
+
+                <div class="vibe-card keyword-vibe">
+                    <h3>키워드</h3>
+                    <div class="keyword-cloud">
+                        <span class="keyword" style="--size: 1.2" onclick="keywordClick(this)">창의성</span>
+                        <span class="keyword" style="--size: 1.5" onclick="keywordClick(this)">감성</span>
+                        <span class="keyword" style="--size: 1.1" onclick="keywordClick(this)">혁신</span>
+                        <span class="keyword" style="--size: 1.3" onclick="keywordClick(this)">협업</span>
+                        <span class="keyword" style="--size: 1.4" onclick="keywordClick(this)">성장</span>
+                        <span class="keyword" style="--size: 1.0" onclick="keywordClick(this)">열정</span>
+                    </div>
+                </div>
+
+                <div class="vibe-card quote-vibe">
+                    <h3>명언</h3>
+                    <div class="favorite-quotes">
+                        <blockquote>"The best way to predict the future is to create it."</blockquote>
+                        <cite>- Peter Drucker</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects 섹션 -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <h2 class="section-title glitch" data-text="Projects">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" onclick="projectClick(this)">
+                    <div class="project-image">
+                        <span class="project-icon">🎨</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>바이브 코딩 워크샵</h3>
+                        <p>학생들과 함께하는 감성 프로그래밍 수업. 개인의 취향과 감성을 코드로 표현하는 방법을 탐구합니다.</p>
+                        <div class="project-tags">
+                            <span class="tag">Education</span>
+                            <span class="tag">Creative Coding</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="projectClick(this)">
+                    <div class="project-image">
+                        <span class="project-icon">💻</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>학생 포트폴리오 가이드</h3>
+                        <p>학생들이 자신만의 개성이 담긴 포트폴리오 웹사이트를 만들 수 있도록 돕는 프로젝트입니다.</p>
+                        <div class="project-tags">
+                            <span class="tag">Portfolio</span>
+                            <span class="tag">Web Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="projectClick(this)">
+                    <div class="project-image">
+                        <span class="project-icon">🌟</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Wall of Vibes</h3>
+                        <p>학생들이 만든 바이브 코딩 페이지들을 모아놓은 전시 공간. 각자의 개성과 창의성을 공유합니다.</p>
+                        <div class="project-tags">
+                            <span class="tag">Exhibition</span>
+                            <span class="tag">Student Work</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="projectClick(this)">
+                    <div class="project-image">
+                        <span class="project-icon">🤖</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI 감정 테마 (예정)</h3>
+                        <p>방문자의 분위기를 감지하여 자동으로 테마를 설정하는 AI 기반 인터랙션 시스템 개발 계획입니다.</p>
+                        <div class="project-tags">
+                            <span class="tag">AI</span>
+                            <span class="tag">Future Tech</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact 섹션 -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title glitch" data-text="Contact">Contact</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>함께 소통해요</h3>
+                        <p>바이브 코딩에 대한 궁금증이나 협업 제안, 언제든 환영입니다!</p>
+                        <div class="contact-links">
+                            <a href="mailto:teacher@vibecoding.com" class="contact-link">
+                                <span>📧</span> teacher@vibecoding.com
+                            </a>
+                            <a href="https://github.com/vibecoding" class="contact-link" target="_blank">
+                                <span>💻</span> GitHub
+                            </a>
+                            <a href="https://instagram.com/vibecoding" class="contact-link" target="_blank">
+                                <span>📸</span> Instagram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">이름</label>
+                            <input type="text" id="name" name="name" required placeholder="당신의 이름을 알려주세요">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">이메일</label>
+                            <input type="email" id="email" name="email" required placeholder="연락받을 이메일 주소">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">메시지</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="바이브 코딩에 대한 생각이나 질문을 자유롭게 적어주세요"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">메시지 보내기 ✨</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 My Vibe Branding Site. Made with ❤️ by Vibe Coding Teacher</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.7;">
+                💡 팁: 숨겨진 이스터 에그들을 찾아보세요! (코나미 코드 시도해보기 😉)
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
